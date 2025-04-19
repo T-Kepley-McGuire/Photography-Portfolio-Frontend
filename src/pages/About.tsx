@@ -1,5 +1,5 @@
 function About() {
-  const my = "my-0";
+  const my = "my-0 text-center sm:text-left";
   return (
     <div className="mx-auto w-[90vw] sm:w-[50vw] mt-[35vh] mb-20 flex flex-col items-center gap-4">
       {/* <img
