@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { useIntersectionOpacity } from "../hooks/useIntersectionObserver";
 import { useState } from "react";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function Home() {
   const { ref: portfolioRef, intersectionRatio: portfolioIR } =
     useIntersectionOpacity();
@@ -16,6 +18,12 @@ function Home() {
   const wipeAnimationTime = 1000;
 
   const navigate = useNavigate();
+
+  fetch(`${API_URL}/ping`, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+    body: "ping",
+  })
 
   return (
     <main className="flex-grow-2">
