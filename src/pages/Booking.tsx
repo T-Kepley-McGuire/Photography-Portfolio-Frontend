@@ -24,6 +24,8 @@ export type CustomDate = {
   day: number;
 };
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function Booking() {
   const [confirmBooking, setConfirmBooking] = useState(<></>);
 
@@ -72,7 +74,7 @@ function Booking() {
       timeslots: validTimeslots,
     };
 
-    fetch("http://localhost:5000/api/submit-booking", {
+    fetch(`${API_URL}/api/submit-booking`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -107,7 +109,7 @@ function Booking() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/pricing")
+    fetch(`${API_URL}/api/pricing`)
       .then((res) => res.json())
       .then((temp) => {
         console.log(temp);

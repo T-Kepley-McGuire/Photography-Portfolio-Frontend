@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import { Masonry } from "masonic";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 type ImageData = {
   url: string;
   index: number;
@@ -15,12 +17,12 @@ function Portfolio() {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/portfolio/images")
+    fetch(`${API_URL}/portfolio/images`)
       .then((res) => res.json())
       .then((urls: string[]) =>
         setImageUrls(
           urls.map((url, i) => ({
-            url: `http://localhost:5000${url}`,
+            url: `${API_URL}${url}`,
             index: i,
           }))
         )
