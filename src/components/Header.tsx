@@ -129,8 +129,6 @@ export default function Header() {
     };
   });
 
-  const headerPadding = 5;
-  const transitionDuration = 300;
   return (
     <header
       className={`fixed flex w-full flex-row flex-wrap items-center justify-center gap-x-3 sm:gap-[3%] ${
