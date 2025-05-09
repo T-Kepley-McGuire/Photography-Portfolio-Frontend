@@ -7,6 +7,8 @@ import Portfolio from "./pages/Portfolio";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import { useLayoutEffect } from "react";
+import Contact from "./pages/Contact";
+import Investments from "./pages/Investments";
 
 function App() {
   const location = useLocation();
@@ -21,7 +23,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/about" element={<About />} />
-        <Route path="/booking" element={<Booking />} />
+        <Route path="/investments" element={<Investments />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

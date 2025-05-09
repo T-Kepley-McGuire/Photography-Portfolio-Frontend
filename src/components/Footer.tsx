@@ -1,6 +1,6 @@
 const Footer: React.FC = () => {
   return (
-    <footer className="relative bottom-0 w-full bg-gray-100 text-black text-center flex flex-col landscape:flex-row justify-around items-center gap-y-3 py-5 border-t-2 border-gray-400">
+    <footer className="relative bottom-0 w-full bg-mygreen-50 text-black text-center flex flex-col landscape:flex-row justify-around items-center gap-y-3 py-5 border-t-2 border-gray-400">
       <p>
         Contact:{" "}
         <a
@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
         Socials:{" "}
         <a
           href="https://www.facebook.com/people/Lizzie-McGuire-Photography/61565164815546/"
-          className="p-2 rounded-lg flex items-center w-fit h-fit border border-gray-300 justify-center transition-all duration-500 hover:border-gray-100 hover:bg-gray-100"
+          className="p-2 rounded-lg flex items-center w-fit h-fit border border-mygreen-600 justify-center transition-all duration-500 hover:border-mygreen-50 hover:bg-mygreen-50"
         >
           <svg
             width="28"
@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
         <a
             id="instagram-link"
           href="https://www.instagram.com/lizzie.mcguire.photography/"
-          className="p-2 rounded-lg flex items-center w-fit h-fit border border-gray-300 justify-center transition-all duration-500 hover:border-gray-100 hover:bg-gray-100"
+          className="p-2 rounded-lg flex items-center w-fit h-fit border border-mygreen-600 justify-center transition-all duration-500 hover:border-mygreen-50 hover:bg-mygreen-50"
         >
           <svg
             width="28"
