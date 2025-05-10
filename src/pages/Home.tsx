@@ -1,16 +1,8 @@
 import { useNavigate } from "react-router-dom";
-// import { useIntersectionOpacity } from "../hooks/useIntersectionObserver";
 import { useState } from "react";
 
-const API_URL = import.meta.env.VITE_API_URL;
-
 function Home() {
-  // const { ref: portfolioRef, intersectionRatio: portfolioIR } =
-  //   useIntersectionOpacity();
-  // const { ref: aboutRef, intersectionRatio: aboutIR } =
-  //   useIntersectionOpacity();
-  // const { ref: bookingRef, intersectionRatio: bookingIR } =
-  //   useIntersectionOpacity();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const [portfolioWipe, setPortfolioWipe] = useState(false);
   const [aboutWipe, setAboutWipe] = useState(false);

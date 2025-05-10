@@ -1,13 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import TimeslotInsert from "./TimeslotInsert";
 import CalendarItem from "./CalendarItem";
-import { CustomDate, Timeslot } from "../pages/Booking";
+import { CustomDate } from "../pages/Booking";
 
 // export type CustomDate = {
 //   year: number;
 //   month: string;
 //   day: number;
 // };
+
+export type Timeslot = {
+  date: CustomDate;
+  morning: boolean;
+  afternoon: boolean;
+  evening: boolean;
+};
 
 export type DateData = {
   date: CustomDate;
@@ -34,20 +41,25 @@ export type DateData = {
 // };
 
 type CalendarGridProps = {
-    selectedTimeslots: Timeslot[];
-    setSelectedTimeslots: React.Dispatch<React.SetStateAction<Timeslot[]>>;
-}
+  selectedTimeslots: Timeslot[];
+  setSelectedTimeslots: React.Dispatch<React.SetStateAction<Timeslot[]>>;
+};
 
-export default function CalendarGrid({selectedTimeslots, setSelectedTimeslots}: CalendarGridProps) {
+export default function CalendarGrid({
+  selectedTimeslots,
+  setSelectedTimeslots,
+}: CalendarGridProps) {
   const todayRef = useRef<HTMLDivElement>(null);
-  const yearNameRef = useRef<HTMLDivElement>(null);
+  // const yearNameRef = useRef<HTMLDivElement>(null);
 
   const [gridDates, setGridDates] = useState<Array<DateData>>([]);
 
+  // const monthObservers: { [key: string]: any } = {};
+
   const noDate = { year: 0, month: "", day: 0 };
   const [opened, setOpened] = useState<DateData["date"]>(noDate);
-
-//   const [selectedTimeslots, setSelectedTimeslots] = useState<Timeslot[]>([]);
+  const [year, setYear] = useState<String>("");
+  //   const [selectedTimeslots, setSelectedTimeslots] = useState<Timeslot[]>([]);
 
   const setSelection = (date: CustomDate) => {
     return (morning: boolean, afternoon: boolean, evening: boolean) => {
@@ -92,8 +104,8 @@ export default function CalendarGrid({selectedTimeslots, setSelectedTimeslots}: 
   };
 
   const isSelected = (date: CustomDate) => {
-    return selectedTimeslots.some(timeslot => timeslot.date == date);
-  }
+    return selectedTimeslots.some((timeslot) => timeslot.date == date);
+  };
 
   useEffect(() => {
     const loadCalendar = () => {
@@ -111,10 +123,7 @@ export default function CalendarGrid({selectedTimeslots, setSelectedTimeslots}: 
       endingLastWeek.setDate(beginningTodaysWeek.getDate() + 52 * 7 + 6);
 
       const workingDate = new Date(beginningFourWeeksAgo);
-      //   const grid = gridRef.current;
-      //   if (!grid) return;
 
-      //   grid.innerHTML = "";
       const tempDates: DateData[] = [];
       for (let i = 0; i < 52 * 7 + 6 + 5 * 7; i++) {
         tempDates.push({
@@ -174,14 +183,33 @@ export default function CalendarGrid({selectedTimeslots, setSelectedTimeslots}: 
               rowNumber: 1 + Math.floor(i / 7),
             },
           });
+
+          // const observer = new IntersectionObserver(
+          //   (entries) => {
+          //     const entry = entries.reduce((prevEnt, ent) => ent.intersectionRatio > prevEnt.intersectionRatio ? ent : prevEnt);
+          //     if (yearNameRef.current)
+          //       yearNameRef.current.innerText = weekEnd.getFullYear().toString();
+          //   },
+          //   {
+          //     threshold: Array.from(
+          //       { length: 6 },
+          //       (_, i) => i / 5
+          //     ),
+          //   }
+          // );
+
+          // monthObservers[
+          //   weekEnd.toLocaleString("default", { month: "short" })
+          // ] = ref;
         }
         workingDate.setDate(workingDate.getDate() + 1);
       }
       setGridDates(tempDates);
 
-      if (yearNameRef.current) {
-        yearNameRef.current.innerText = today.getFullYear().toString();
-      }
+      // if (yearNameRef.current) {
+      //   yearNameRef.current.innerText = today.getFullYear().toString();
+      // }
+      setYear(today.getFullYear().toString());
     };
 
     loadCalendar();
@@ -196,20 +224,22 @@ export default function CalendarGrid({selectedTimeslots, setSelectedTimeslots}: 
   }, [todayRef]);
 
   return (
-    <div className="mx-auto items-center flex flex-col justify-center">
+    <div className="items-center flex flex-col justify-center">
       <div className="calendar-intersection-window"></div>
 
       {/* Grid Header */}
       <div className="w-[320px] text-sm sm:text-base sm:w-[355px] grid grid-cols-8 border-b">
         <div
           id="calendar-year-name"
-          ref={yearNameRef}
+          // ref={yearNameRef}
           className="font-bold text-center col-start-1 row-start-1"
-        ></div>
+        >
+          {year}
+        </div>
 
         {["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"].map((day, idx) => (
           <div
-            key={idx}
+            key={day}
             className="text-center col-start-[2] row-start-1"
             style={{ gridArea: `1 / ${2 + idx}` }}
           >
@@ -226,10 +256,18 @@ export default function CalendarGrid({selectedTimeslots, setSelectedTimeslots}: 
           {gridDates.map((dateData) => (
             <>
               <CalendarItem
+                key={`${dateData.date.month}/${dateData.date.day}/${dateData.date.year}`}
                 dateData={dateData}
                 opened={opened}
                 setOpened={setOpened}
-                reference={todayRef}
+                setYear={dateData.data.isMonth ? setYear : undefined}
+                reference={
+                  dateData.data.today
+                    ? todayRef
+                    : // : dateData.data.isMonth
+                      // ? monthObservers[dateData.date.month]
+                      undefined
+                }
                 isSelected={isSelected(dateData.date)}
               />
 

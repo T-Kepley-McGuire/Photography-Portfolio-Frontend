@@ -1,7 +1,7 @@
 // components/BookingPage.tsx
 import { useEffect, useState } from "react";
 import PricingCard from "../components/PricingCard";
-import CalendarGrid from "../components/CalendarGrid";
+import CalendarGrid, {Timeslot} from "../components/CalendarGrid";
 
 export type PricingOption = {
   id: string;
@@ -11,12 +11,7 @@ export type PricingOption = {
   price: number;
 };
 
-export type Timeslot = {
-  date: CustomDate;
-  morning: boolean;
-  afternoon: boolean;
-  evening: boolean;
-};
+
 
 export type CustomDate = {
   year: number;

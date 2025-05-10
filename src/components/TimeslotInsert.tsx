@@ -26,8 +26,8 @@ export default function TimeslotInsert({
             selected.evening
           )
         }
-        className={`cursor-pointer bg-gray-200 rounded-md py-2 px-1 border-2 transition-all duration-300 ${
-          selected.morning ? "border-green-700" : "border-transparent"
+        className={`cursor-pointer bg-mygreen-100 rounded-md py-2 px-1 border-2 transition-all duration-300 ${
+          selected.morning ? "border-mygreen-700" : "border-transparent"
         }`}
       >
         Morning
@@ -40,8 +40,8 @@ export default function TimeslotInsert({
             selected.evening
           )
         }
-        className={`cursor-pointer bg-gray-200 rounded-md py-2 px-1 border-2 transition-all duration-300 ${
-          selected.afternoon ? "border-green-700" : "border-transparent"
+        className={`cursor-pointer bg-mygreen-100 rounded-md py-2 px-1 border-2 transition-all duration-300 ${
+          selected.afternoon ? "border-mygreen-700" : "border-transparent"
         }`}
       >
         Afternoon
@@ -54,8 +54,8 @@ export default function TimeslotInsert({
             !selected.evening
           )
         }
-        className={`cursor-pointer bg-gray-200 rounded-md py-2 px-1 border-2 transition-all duration-300 ${
-          selected.evening ? "border-green-700" : "border-transparent"
+        className={`cursor-pointer bg-mygreen-100 rounded-md py-2 px-1 border-2 transition-all duration-300 ${
+          selected.evening ? "border-mygreen-700" : "border-transparent"
         }`}
       >
         Evening
