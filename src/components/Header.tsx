@@ -110,30 +110,28 @@ export function Header2() {
 }
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(true);
-  const [scrollPos, setScrollPos] = useState(0);
+  // const [menuOpen, setMenuOpen] = useState(true);
+  // const [scrollPos, setScrollPos] = useState(0);
 
-  const controlMenu = () => {
-    if (window.scrollY > scrollPos) {
-      setMenuOpen(false);
-    } else {
-      setMenuOpen(true);
-    }
-    setScrollPos(window.scrollY);
-  };
+  // const controlMenu = () => {
+  //   if (window.scrollY > scrollPos) {
+  //     setMenuOpen(false);
+  //   } else {
+  //     setMenuOpen(true);
+  //   }
+  //   setScrollPos(window.scrollY);
+  // };
 
-  useEffect(() => {
-    window.addEventListener("scroll", controlMenu);
-    return () => {
-      window.removeEventListener("scroll", controlMenu);
-    };
-  });
+  // useEffect(() => {
+  //   window.addEventListener("scroll", controlMenu);
+  //   return () => {
+  //     window.removeEventListener("scroll", controlMenu);
+  //   };
+  // });
 
   return (
     <header
-      className={`fixed flex w-full flex-row flex-wrap items-center justify-center gap-x-3 sm:gap-[3%] ${
-        menuOpen ? "top-0" : "-top-[200px]"
-      } z-10 bg-transparent min-h-12 transition-top duration-500 bg-linear-to-b from-mygreen-100/50 to-transparent`}
+      className={`absolute flex w-full flex-row flex-wrap items-center justify-center gap-x-3 sm:gap-[3%] top-0 z-10 bg-transparent min-h-12 transition-top duration-500 bg-linear-to-b from-mygreen-100/50 to-transparent`}
     >
       <Link
         to="/portfolio"

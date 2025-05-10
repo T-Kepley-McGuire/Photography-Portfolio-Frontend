@@ -26,14 +26,14 @@ function Home() {
   });
 
   return (
-    <main className="flex-grow-2">
+    <main className="flex-grow-2 ">
       <section
         id="hero"
         className="relative flex flex-col items-center w-full h-screen  "
       >
         <div className="absolute bottom-0 h-[20%] w-full bg-gradient-to-b from-transparent to-mygreen-50"></div>
         <img
-          className="w-2/5 max-w-[200px] opacity-90 mt-30"
+          className="w-2/5 max-w-[200px] opacity-90 mt-35 sm:mt-30"
           src="/images/logo.png"
           alt="Lizzie McGuire Logo"
         />

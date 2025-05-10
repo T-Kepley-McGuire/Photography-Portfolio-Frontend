@@ -5,7 +5,7 @@ export default function Investments() {
   const navigate = useNavigate();
 
   return (
-    <main className="flex-grow-2 pt-35">
+    <main className="flex-grow-2 mt-40 sm:mt-30">
       <h2 className="text-center text-2xl m-10">
         Take a look at my offerings!
       </h2>

@@ -227,8 +227,8 @@ function Portfolio() {
   );
 
   return (
-    <main>
-      <section className="h-[50vh] flex flex-col justify-evenly items-center">
+    <main className="mt-40 sm:mt-30">
+      <section className="h-50 flex flex-col justify-evenly items-center">
          <h2 className="text-3xl font-semibold">My Work</h2>
          <p className="text-lg">
            Explore my portfolio to see a range of my work
@@ -275,11 +275,11 @@ function Portfolio() {
 
         {/* Modal Background + Image */}
         <div
-          className="modal-content absolute w-screen h-screen bg-black sm:bg-gray-900/25 flex items-center justify-center -z-10"
+          className="modal-content absolute w-screen h-screen bg-black sm:bg-gray-900/50 flex items-center justify-center -z-10"
           onClick={() => setShowModal(false)}
         >
           <img
-            className="shadow-2xl w-screen sm:max-w-[95vw] h-screen sm:max-h-[95vh] object-contain"
+            className="w-screen sm:max-w-[95vw] h-screen sm:max-h-[95vh] object-contain"
             alt=""
             src={imageUrls[modalIndex]?.url}
           />

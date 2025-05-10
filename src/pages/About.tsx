@@ -1,7 +1,7 @@
 function About() {
   const my = "my-4 text-center sm:text-left";
   return (
-    <main className="flex-grow mx-auto w-[90vw] sm:w-[50vw] mt-40 sm:mt-20 mb-15 flex flex-col items-center justify-end gap-4">
+    <main className="flex-grow mx-auto w-[90vw] sm:w-[50vw] mt-40 sm:mt-30 mb-15 flex flex-col items-center justify-end gap-4">
       {/* <img
       src="/images/lm-photo.jpg"
       alt="Lizzie McGuire"
